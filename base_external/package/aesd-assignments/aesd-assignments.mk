@@ -6,11 +6,20 @@
 ##############################################################
 
 #TODO: Fill up the contents below in order to reference your assignment 3 git contents
-AESD_ASSIGNMENTS_VERSION = '#COMMIT VERSION NUMBER'
+# AESD_ASSIGNMENTS_VERSION = '1cf6e95'		#'#COMMIT VERSION NUMBER'
+# AESD_ASSIGNMENTS_VERSION = 870d235		#'#COMMIT VERSION NUMBER'
+# AESD_ASSIGNMENTS_VERSION = 5a3d163		#'#COMMIT VERSION NUMBER'
+# AESD_ASSIGNMENTS_VERSION = c2d8cf4		#'#COMMIT VERSION NUMBER'
+# AESD_ASSIGNMENTS_VERSION = 63cc346		#'#COMMIT VERSION NUMBER'
+AESD_ASSIGNMENTS_VERSION = 01f3ce2		#'#COMMIT VERSION NUMBER'
+
+
 # Note: Be sure to reference the *ssh* repository URL here (not https) to work properly
 # with ssh keys and the automated build/test system.
-# Your site should start with git@github.com:
-AESD_ASSIGNMENTS_SITE = '#GITHUB REPOSITORY LINK'
+# Your site should start with git@github.com
+
+#'#GITHUB REPOSITORY LINK'
+AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/assignments-3-and-later-flatos.git
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
 
@@ -20,6 +29,10 @@ endef
 
 # TODO add your writer, finder and finder-test utilities/scripts to the installation steps below
 define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
+	$(INSTALL) -m 0755 $(@D)/finder-app/finder.sh $(TARGET_DIR)/usr/bin/
+	$(INSTALL) -m 0755 $(@D)/finder-app/finder-test.sh $(TARGET_DIR)/usr/bin/
+	$(INSTALL) -m 0755 $(@D)/finder-app/writer $(TARGET_DIR)/usr/bin/
+
 	$(INSTALL) -d 0755 $(@D)/conf/ $(TARGET_DIR)/etc/finder-app/conf/
 	$(INSTALL) -m 0755 $(@D)/conf/* $(TARGET_DIR)/etc/finder-app/conf/
 	$(INSTALL) -m 0755 $(@D)/assignment-autotest/test/assignment4/* $(TARGET_DIR)/bin
